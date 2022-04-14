@@ -579,7 +579,7 @@ mod tests {
     fn test_read_write_scalar() {
         with_tmp_file::<Result<_>, _>(|file| {
             let val: f64 = 0.2;
-            let dataset = file.new_dataset::<f64>().deflate(3).create("foo")?;
+            let dataset = file.new_dataset::<f64>().create("foo")?;
             dataset.write_scalar(&val)?;
             let val_back = dataset.read_scalar()?;
             assert_eq!(val, val_back);
